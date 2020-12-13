@@ -12,6 +12,14 @@ And we then build `0.2.1` - what tags should be applied?
  
 This tools tries to generate those tags. It'll spit out:
   `0.2` and `0.2.1`. It will not touch the `0` tag as this should still point to `0.3.0`.
+  
+So, in your kubernetes defintions you might then deploy $ARTFACT:0.2 and you'll get updates for the 0.2
+branch.
+
+Handling of `latest` is so simple that you don't need any tooling. The tricky bits are sticking on a MAJOR 
+or MINOR version.
+
+The regular expression used is taken from semver.org. 
 
 
 ## Usage
@@ -34,3 +42,6 @@ You'll need to integrate this with your registry somehow.
 Note that this tool hasn't been given much testing. However, as I found nothing like it I thought it might make
 sense to publish it. File and issue if you have any comments.
 
+### Bugs and weird stuff:
+
+Ironically there is no versioning of this script. I suggest you copy and adapt.
