@@ -1,5 +1,5 @@
 """
-Take a verion as an argument and a list of versions on stdin.
+Take a version as an argument and a list of versions on stdin.
 Spits out what docker tags should be applied to the build.
 
 Notes on semver handling.
@@ -35,7 +35,7 @@ def semverparse(ver: str) -> (int, int, int, str, str):
                 if match.group('buildmetadata'):
                     buildmetadata = match.group('buildmetadata')
     else:
-        raise ValueError(f"Invalid version string '{ver}' (regex didn't match)")
+        raise ValueError(f"Invalid version string '{ver}' (regex did not match)")
 
     return major, minor, patch, prerelease, buildmetadata
 
@@ -76,7 +76,6 @@ def get_new_tags(newversion, existing_verions) -> List[str]:
         tags.append(f"{major}{prerelease}")
     elif max(our_minors) <= minor:
         tags.append(f"{major}{prerelease}")
-
     return tags
 
 def main():
